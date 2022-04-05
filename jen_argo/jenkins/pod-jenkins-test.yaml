@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-test
+  labels:
+    app: jenkins
+spec:
+  containers:
+  - name: jenkins-container
+    image: bluetic321/my-jenkins:1.0
+    ports:
+    - containerPort: 8080
