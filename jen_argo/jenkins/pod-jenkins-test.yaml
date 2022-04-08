@@ -1,12 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jenkins-test
+  name: jenkins-test-host
   labels:
-    app: jenkins
+    app: jenkins-host
 spec:
   containers:
   - name: jenkins-container
     image: bluetic321/my-jenkins:1.0
     ports:
     - containerPort: 8080
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: hostpath-docker-sock
+  volumes:
+  - name: hostpath-docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
