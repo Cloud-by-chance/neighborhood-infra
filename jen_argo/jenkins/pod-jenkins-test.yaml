@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jenkins-test-host
+  name: jenkins-host
   labels:
     app: jenkins-host
 spec:
